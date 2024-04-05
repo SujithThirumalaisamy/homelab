@@ -1,0 +1,4 @@
+guac.isujith.dev
+nginx.isujith.dev
+plex.isujith.dev
+tplink.isujith.dev
