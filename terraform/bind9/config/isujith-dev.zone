@@ -1,0 +1,23 @@
+$TTL 2d
+$ORIGIN isujith.dev.
+@             IN     SOA   ns.isujith.dev. hostmaster.isujith.dev. (
+                                2003080800 ; serial number
+                                12h        ; refresh
+                                15m        ; update retry
+                                3w         ; expiry
+                                2h         ; minimum
+                            )
+              IN     NS     ns.isujith.dev.
+
+srv-prod-1    IN     A      10.10.0.1
+srv-prod-2    IN     A      10.10.0.2
+srv-prod-3    IN     A      10.10.0.3
+
+srv-dev-1     IN     A      10.20.0.1
+srv-dev-2     IN     A      10.20.0.2
+srv-dev-3     IN     A      10.20.0.3
+
+plex          IN     A      10.30.0.1
+nas           IN     A      10.30.0.2
+ns            IN     A      10.30.0.99
+
