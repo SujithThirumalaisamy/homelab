@@ -1,1 +1,10 @@
+# Default Terraform files to ignore
 credentials.auto.tfvars
+.terraform.lock.hcl
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Ignore the named.conf.key file
+named.conf.key
+isujith-dev.zone.jnl
