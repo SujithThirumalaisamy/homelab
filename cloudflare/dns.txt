@@ -1,5 +1,0 @@
-A     guac          103.160.217.21      Proxied
-A     nginx         103.160.217.21      Proxied
-A     plex          103.160.217.21      Proxied
-A     rdp-desktop   103.160.217.21      DNS only
-A     tplink        103.160.217.21      Proxied
