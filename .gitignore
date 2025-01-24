@@ -8,3 +8,6 @@ terraform.tfstate.backup
 # Ignore the named.conf.key file
 named.conf.key
 isujith-dev.zone.jnl
+
+# Ignore helm values files
+*-values.yml
