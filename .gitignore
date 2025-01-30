@@ -5,6 +5,9 @@ credentials.auto.tfvars
 terraform.tfstate
 terraform.tfstate.backup
 
+# Default Packer files to ignore
+credentials.auto.pkrvars.hcl
+
 # Ignore the named.conf.key file
 named.conf.key
 isujith-dev.zone.jnl
