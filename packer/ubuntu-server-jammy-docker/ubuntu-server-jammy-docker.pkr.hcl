@@ -62,8 +62,8 @@ source "proxmox-iso" "ubuntu-server-jammy" {
     boot = "c"
     boot_wait = "5s"
 
-    # http_directory = "http"
-    # http_bind_address = "10.0.80.80"
+    http_directory = "http"
+    http_bind_address = "10.0.80.80"
     # http_port_min = 8802
     # http_port_max = 8802
 
