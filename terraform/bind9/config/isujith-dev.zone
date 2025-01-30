@@ -11,17 +11,17 @@ isujith.dev.       IN SOA ns.isujith.dev. hostmaster.isujith.dev. (
 
 $ORIGIN isujith.dev.
 $TTL 3600 ; 1 hour
-nas                A     10.30.0.2
-ns                 A     10.30.0.99
-plex               A     10.30.0.1
+nas                A     10.0.30.2
+ns                 A     10.0.50.1
+plex               A     10.0.30.1
 
 ; Demo VMs
-srv-demo-1         A     10.20.0.1
-srv-demo-2         A     10.20.0.2
-srv-demo-3         A     10.20.0.3
+srv-demo-1         A     10.0.20.1
+srv-demo-2         A     10.0.20.2
+srv-demo-3         A     10.0.20.3
 
 ; Prod VMs
-srv-prod-1         A     10.10.0.1
-srv-prod-2         A     10.10.0.2
-srv-prod-3         A     10.10.0.3
+srv-prod-1         A     10.0.10.1
+srv-prod-2         A     10.0.10.2
+srv-prod-3         A     10.0.10.3
 
