@@ -22,7 +22,7 @@ resource "proxmox_vm_qemu" "srv-demo-1" {
 
   os_type = "cloud-init"
 
-  ipconfig0 = "ip=10.0.20.1/16,gw=10.0.50.1"
+  ipconfig0 = "ip=10.0.20.1/16,gw=1.1.1.1"
 
   ciuser = "sujith"
 
@@ -55,7 +55,7 @@ resource "proxmox_vm_qemu" "srv-demo-2" {
 
   os_type = "cloud-init"
 
-  ipconfig0 = "ip=10.0.20.2/16,gw=10.0.50.1"
+  ipconfig0 = "ip=10.0.20.2/16,gw=1.1.1.1"
 
   ciuser = "sujith"
 
@@ -88,7 +88,7 @@ resource "proxmox_vm_qemu" "srv-demo-3" {
 
   os_type = "cloud-init"
 
-  ipconfig0 = "ip=10.0.20.3/16,gw=10.0.50.1"
+  ipconfig0 = "ip=10.0.20.3/16,gw=1.1.1.1"
 
   ciuser = "sujith"
 
