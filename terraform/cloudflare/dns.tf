@@ -6,3 +6,12 @@ resource "cloudflare_dns_record" "cv" {
   ttl     = 1
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "street-view" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.243.234"
+  name    = "street-view.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
