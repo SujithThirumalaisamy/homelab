@@ -1,5 +1,5 @@
 resource "proxmox_vm_qemu" "srv-demo-1" {
-  target_node = "proxmox"
+  target_node = "pve1"
   vmid        = "101"
   name        = "srv-demo-1"
   desc        = "Demo Server 1"
@@ -8,14 +8,13 @@ resource "proxmox_vm_qemu" "srv-demo-1" {
 
   clone = "ubuntu-jammy-base"
 
-  agent   = 1
-  cores   = 1
+  cores   = 2
   sockets = 1
-  cpu     = "host"
 
   memory = 2048
 
   network {
+    id     = "0"
     bridge = "vmbr0"
     model  = "virtio"
   }
@@ -32,7 +31,7 @@ resource "proxmox_vm_qemu" "srv-demo-1" {
 }
 
 resource "proxmox_vm_qemu" "srv-demo-2" {
-  target_node = "proxmox"
+  target_node = "pve1"
   vmid        = "102"
   name        = "srv-demo-2"
   desc        = "Demo Server 2"
@@ -41,14 +40,13 @@ resource "proxmox_vm_qemu" "srv-demo-2" {
 
   clone = "ubuntu-jammy-base"
 
-  agent   = 1
-  cores   = 1
+  cores   = 2
   sockets = 1
-  cpu     = "host"
 
   memory = 2048
 
   network {
+    id     = "0"
     bridge = "vmbr0"
     model  = "virtio"
   }
@@ -65,7 +63,7 @@ resource "proxmox_vm_qemu" "srv-demo-2" {
 }
 
 resource "proxmox_vm_qemu" "srv-demo-3" {
-  target_node = "proxmox"
+  target_node = "pve1"
   vmid        = "103"
   name        = "srv-demo-3"
   desc        = "Demo Server 3"
@@ -74,14 +72,13 @@ resource "proxmox_vm_qemu" "srv-demo-3" {
 
   clone = "ubuntu-jammy-base"
 
-  agent   = 1
-  cores   = 1
+  cores   = 2
   sockets = 1
-  cpu     = "host"
 
   memory = 2048
 
   network {
+    id     = "0"
     bridge = "vmbr0"
     model  = "virtio"
   }
