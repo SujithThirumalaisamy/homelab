@@ -1,5 +1,8 @@
-- hosts: "*"
+---
+- name: Update apt
+  hosts: "{{ '*' | d([]) }}"
   become: yes
+
   tasks:
     - name: Update apt
       apt:

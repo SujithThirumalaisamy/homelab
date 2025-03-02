@@ -1,6 +1,8 @@
+---
 - name: Ping
-  hosts: "*"
+  hosts: "{{ '*' | d([]) }}"
   become: yes
+
   tasks:
     - name: Ping
       ping: data=pong
