@@ -1,0 +1,6 @@
+- name: Ping
+  hosts: "*"
+  become: yes
+  tasks:
+    - name: Ping
+      ping: data=pong
