@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omada-controller
+  namespace: omada
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: omada-controller
+  template:
+    metadata:
+      labels:
+        app: omada-controller
+    spec:
+      containers:
+        - name: omada-controller
+          image: mbentley/omada-controller:latest
+          env:
+            - name: PUID
+              value: "508"
+            - name: PGID
+              value: "508"
+            - name: MANAGE_HTTP_PORT
+              value: "8088"
+            - name: MANAGE_HTTPS_PORT
+              value: "8043"
+            - name: PORTAL_HTTP_PORT
+              value: "8088"
+            - name: PORTAL_HTTPS_PORT
+              value: "8844"
+            - name: PORT_APP_DISCOVERY
+              value: "27001"
+            - name: PORT_ADOPT_V1
+              value: "29812"
+            - name: PORT_UPGRADE_V1
+              value: "29813"
+            - name: PORT_MANAGER_V1
+              value: "29811"
+            - name: PORT_MANAGER_V2
+              value: "29814"
+            - name: PORT_DISCOVERY
+              value: "29810"
+            - name: PORT_TRANSFER_V2
+              value: "29815"
+            - name: PORT_RTTY
+              value: "29816"
+            - name: SHOW_SERVER_LOGS
+              value: "true"
+            - name: SHOW_MONGODB_LOGS
+              value: "false"
+            - name: SSL_CERT_NAME
+              value: "tls.crt"
+            - name: SSL_KEY_NAME
+              value: "tls.key"
+            - name: TZ
+              value: "Etc/UTC"
+          volumeMounts:
+            - name: omada-data
+              mountPath: /opt/tplink/EAPController/data
+            - name: omada-logs
+              mountPath: /opt/tplink/EAPController/logs
+          securityContext:
+            capabilities:
+              add: ["SYS_RESOURCE"] # Required to change ulimits
+          resources: {} # Ensure no invalid entries
+      volumes:
+        - name: omada-data
+          persistentVolumeClaim:
+            claimName: omada-data-nfs
+        - name: omada-logs
+          persistentVolumeClaim:
+            claimName: omada-logs-nfs
+

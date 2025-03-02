@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semaphore
+  labels:
+    app: semaphore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: semaphore
+  template:
+    metadata:
+      labels:
+        app: semaphore
+    spec:
+      containers:
+        - name: semaphore
+          image: semaphoreui/semaphore:v2.12.14
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SEMAPHORE_DB_DIALECT
+              value: postgres
+            - name: SEMAPHORE_DB_HOST
+              value: 10.0.60.11
+            - name: SEMAPHORE_DB_NAME
+              value: semaphore
+            - name: SEMAPHORE_DB_USER
+              value: postgres
+            - name: SEMAPHORE_DB_PASS
+              value: sXSp18ofH2Koho
+            - name: SEMAPHORE_ADMIN
+              value: root
+            - name: SEMAPHORE_ADMIN_PASSWORD
+              value: sujith2023
+            - name: SEMAPHORE_ADMIN_NAME
+              value: Sujith
+            - name: SEMAPHORE_ADMIN_EMAIL
+              value: sujithmasi1267@gmail.com
+            - name: SEMAPHORE_WEB_ROOT
+              value: https://semaphore.home.isujith.dev
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semaphore-postgres
+  labels:
+    app: semaphore-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: semaphore-postgres
+  template:
+    metadata:
+      labels:
+        app: semaphore-postgres
+    spec:
+      containers:
+        - name: semaphore-postgres
+          image: postgres:14
+          env:
+            - name: "POSTGRES_USER"
+              value: postgres
+            - name: "POSTGRES_PASSWORD"
+              value: sXSp18ofH2Koho
+            - name: "POSTGRES_DB"
+              value: semaphore
+          ports:
+            - containerPort: 5432

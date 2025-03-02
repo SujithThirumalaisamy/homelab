@@ -14,3 +14,5 @@ isujith-dev.zone.jnl
 
 # Ignore helm values files
 *-values.yml
+*-secret.yml
+secrets.yml
