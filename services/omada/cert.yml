@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: omada-cert
+  namespace: default
+spec:
+  secretName: omada-cert-tls
+  issuerRef:
+    name: cloudflare-issuer
+    kind: Issuer
+  commonName: omada.home.isujith.dev
+  dnsNames:
+    - omada.home.isujith.dev

@@ -12,11 +12,11 @@ resource "null_resource" "copy_folder" {
 }
 
 resource "docker_container" "bind9" {
-  depends_on = [time_sleep.wait_10_seconds]
-  image = "ubuntu/bind9:latest"
-  name = "dns-prod-1"
+  depends_on   = [time_sleep.wait_10_seconds]
+  image        = "ubuntu/bind9:latest"
+  name         = "dns-prod-1"
   network_mode = "bridge"
-  restart = "unless-stopped"
+  restart      = "unless-stopped"
   env = [
     "TZ=Asia/Kolkata",
     "BIND9_USER=root"
@@ -24,19 +24,19 @@ resource "docker_container" "bind9" {
   ports {
     internal = 53
     external = 53
-    ip="0.0.0.0"
+    ip       = "0.0.0.0"
     protocol = "tcp"
   }
   ports {
     internal = 53
     external = 53
-    ip="0.0.0.0"
+    ip       = "0.0.0.0"
     protocol = "udp"
   }
   volumes {
-    host_path = "/home/config/"
+    host_path      = "/home/config/"
     container_path = "/etc/bind/"
   }
- }
+}
 
 

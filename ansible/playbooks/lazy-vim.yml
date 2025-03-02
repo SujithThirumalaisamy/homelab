@@ -1,0 +1,65 @@
+- hosts: "test"
+  become: yes
+  tasks:
+    - name: Fix broken apt packages
+      ansible.builtin.command: apt --fix-broken install -y
+      changed_when: false
+
+    - name: Update and upgrade apt packages
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install required packages
+      ansible.builtin.apt:
+        name:
+          - git
+          - curl
+          - build-essential
+          - ripgrep
+          - fd-find
+          - fzf
+        state: present
+
+    - name: Download Neovim binary
+      ansible.builtin.get_url:
+        url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+        dest: /tmp/nvim-linux-x86_64.tar.gz
+
+    - name: Remove old Neovim installation
+      ansible.builtin.file:
+        path: /opt/nvim
+        state: absent
+
+    - name: Create Neovim directory
+      ansible.builtin.file:
+        path: /opt/nvim
+        state: directory
+        mode: '0755'
+
+    - name: Extract Neovim
+      ansible.builtin.unarchive:
+        src: /tmp/nvim-linux-x86_64.tar.gz
+        dest: /opt/nvim
+        remote_src: yes
+        extra_opts: ["--strip-components=1"]
+
+    - name: Remove downloaded Neovim tar file
+      ansible.builtin.file:
+        path: /tmp/nvim-linux-x86_64.tar.gz
+        state: absent
+
+    - name: Ensure Neovim config directory exists
+      ansible.builtin.file:
+        path: "/home/sujith/.config/nvim"
+        state: directory
+        mode: '0755'
+        owner: "sujith"
+
+    - name: Clone LazyVim starter
+      ansible.builtin.git:
+        repo: https://github.com/LazyVim/starter
+        dest: "/home/sujith/.config/nvim"
+        depth: 1
+        force: yes
+
