@@ -1,5 +1,8 @@
-- hosts: "test"
+--- 
+- name: Install Neovim
+  hosts: "{{ '*' | d([]) }}"
   become: yes
+
   tasks:
     - name: Fix broken apt packages
       ansible.builtin.command: apt --fix-broken install -y

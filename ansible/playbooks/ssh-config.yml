@@ -1,0 +1,55 @@
+- name: Secure SSH Configuration
+  hosts: "{{ '*' | d([]) }}"
+  become: yes
+
+  vars:
+    ssh_port: 22
+    ssh_allowed_users: ["sujith", "root"]
+
+  tasks:
+    - name: Install required packages
+      apt:
+        name:
+          - openssh-server
+        state: present
+        update_cache: yes
+
+    - name: Backup existing SSH config
+      copy:
+        src: /etc/ssh/sshd_config
+        dest: /etc/ssh/sshd_config.bak
+        remote_src: yes
+
+    - name: Configure SSH security settings
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+        state: present
+        backup: yes
+      loop:
+        - { regexp: "^#?Port", line: "Port {{ ssh_port }}" }
+        - { regexp: "^#?PermitRootLogin", line: "PermitRootLogin yes" }
+        - { regexp: "^#?PasswordAuthentication", line: "PasswordAuthentication no" }
+        - { regexp: "^#?PubkeyAuthentication", line: "PubkeyAuthentication yes" }
+        - { regexp: "^#?MaxAuthTries", line: "MaxAuthTries 3" }
+        - { regexp: "^#?MaxSessions", line: "MaxSessions 2" }
+        - { regexp: "^#?AllowTcpForwarding", line: "AllowTcpForwarding no" }
+        - { regexp: "^#?X11Forwarding", line: "X11Forwarding no" }
+        - { regexp: "^#?PermitTunnel", line: "PermitTunnel no" }
+        - { regexp: "^#?ClientAliveInterval", line: "ClientAliveInterval 300" }
+        - { regexp: "^#?ClientAliveCountMax", line: "ClientAliveCountMax 2" }
+        - { regexp: "^#?AuthorizedKeysFile", line: "AuthorizedKeysFile .ssh/authorized_keys" }
+
+    - name: Allow only specific users
+      blockinfile:
+        path: /etc/ssh/sshd_config
+        marker: "# {mark} ALLOWED USERS CONFIGURATION"
+        block: |
+          AllowUsers {{ ssh_allowed_users | join(' ') }}
+
+    - name: Restart SSH service
+      systemd:
+        name: sshd
+        state: restarted
+        enabled: yes
