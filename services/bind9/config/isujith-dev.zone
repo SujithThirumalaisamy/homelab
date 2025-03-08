@@ -45,5 +45,5 @@ argo               CNAME traefik.home.isujith.dev
 
 
 ; LXC Services
-nginx              A     10.0.99.2
+nginx              A     10.0.99.1
 homeassistant      A     10.0.5.1
