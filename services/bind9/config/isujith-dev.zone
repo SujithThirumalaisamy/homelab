@@ -15,6 +15,9 @@ nas                A     10.0.30.2
 ns                 A     10.0.30.99
 plex               A     10.0.30.1
 
+; Machines
+pve1               A     10.0.1.1
+
 ; Demo VMs
 srv-demo-1         A     10.0.20.1
 srv-demo-2         A     10.0.20.2
@@ -35,4 +38,12 @@ kn-prod-2          A     10.0.51.2
 kn-prod-3          A     10.0.51.3
 
 ; K3s Services
-semaphore          A     10.0.60.10
+traefik            A     10.0.60.10
+semaphore          CNAME taefik.home.isujith.dev
+pg-semaphore       A     10.0.60.11  ;pg-semaphore is A record because its exprosed with LB
+argo               CNAME traefik.home.isujith.dev
+
+
+; LXC Services
+nginx              A     10.0.99.2
+homeassistant      A     10.0.5.1

@@ -1,0 +1,5 @@
+kubectl create configmap bind9-config \
+  --from-file=../config/isujith-dev.zone \
+  --from-file=../config/named.conf \
+  --from-file=../config/named.conf.key \
+  -o yaml --dry-run=client >config.yml
