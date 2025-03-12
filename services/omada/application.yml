@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: omada-controller
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/SujithThirumalaisamy/homelab"
+    targetRevision: main
+    path: "services/omada"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
