@@ -42,3 +42,21 @@ resource "cloudflare_dns_record" "argo-grpc" {
   ttl     = 1
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "contest" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.243.234"
+  name    = "contest.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "contest-api" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.243.234"
+  name    = "api.contest.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
