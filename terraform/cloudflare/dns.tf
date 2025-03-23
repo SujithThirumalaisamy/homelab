@@ -60,3 +60,21 @@ resource "cloudflare_dns_record" "contest-api" {
   ttl     = 1
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "omara-api" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.243.234"
+  name    = "api-omara.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "omara" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.243.234"
+  name    = "omara.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
