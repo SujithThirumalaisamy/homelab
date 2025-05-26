@@ -25,6 +25,15 @@ resource "cloudflare_dns_record" "uk" {
   type    = "A"
 }
 
+resource "cloudflare_dns_record" "argo" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.250.163"
+  name    = "argo.isujith.dev"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+}
+
 resource "cloudflare_dns_record" "ngrok" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.250.163"
