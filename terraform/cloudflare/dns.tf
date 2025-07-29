@@ -34,15 +34,6 @@ resource "cloudflare_dns_record" "argo" {
   type    = "A"
 }
 
-resource "cloudflare_dns_record" "ngrok" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
-  name    = "*.isujith.dev"
-  proxied = true
-  ttl     = 1
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "mandrill" {
   zone_id = var.cloudflare_zone_id
   content = "mandrill_verify.yi94aWK89PU7d7hVDxkPSQ"
@@ -73,4 +64,31 @@ resource "cloudflare_dns_record" "mandrill_dmarc" {
   name    = "_dmarc.isujith.dev"
   ttl     = 1
   type    = "TXT"
+}
+
+resource "cloudflare_dns_record" "subly-api" {
+  zone_id = var.cloudflare_zone_id
+  content = "api.subly.fun"
+  name    = "subly-api.isujith.dev"
+  proxied = false
+  ttl     = 1
+  type    = "CNAME"
+}
+
+resource "cloudflare_dns_record" "kk-sdat" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.250.163"
+  name    = "kk-sdat.isujith.dev"
+  proxied = false
+  ttl     = 1
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "api-kk-sdat" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.250.163"
+  name    = "api-kk-sdat.isujith.dev"
+  proxied = false
+  ttl     = 1
+  type    = "A"
 }
