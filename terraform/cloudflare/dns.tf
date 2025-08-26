@@ -96,7 +96,7 @@ resource "cloudflare_dns_record" "api-kk-sdat" {
 resource "cloudflare_dns_record" "convonite" {
   zone_id = var.cloudflare_zone_id
   content = "catalyst.cs.zohohost.in"
-  name    = "convonite.isujith.dev"
+  name    = "convonite"
   ttl     = 3600
   type    = "CNAME"
 }
@@ -104,7 +104,7 @@ resource "cloudflare_dns_record" "convonite" {
 resource "cloudflare_dns_record" "convonite_ssl" {
   zone_id = var.cloudflare_zone_id
   content = "catalyst.cs.zohohost.in"
-  name    = "5100d9dea47fd6a2cd4ef7029135b29a.convonite.isujith.dev"
+  name    = "5100d9dea47fd6a2cd4ef7029135b29a.convonite"
   ttl     = 3600
   type    = "CNAME"
 }
