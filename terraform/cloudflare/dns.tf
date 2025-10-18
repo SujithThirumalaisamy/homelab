@@ -75,36 +75,19 @@ resource "cloudflare_dns_record" "subly-api" {
   type    = "CNAME"
 }
 
-resource "cloudflare_dns_record" "kk-sdat" {
+resource "cloudflare_dns_record" "meet" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.250.163"
-  name    = "kk-sdat.isujith.dev"
+  name    = "meet.isujith.dev"
   proxied = false
   ttl     = 3600
   type    = "A"
 }
 
-resource "cloudflare_dns_record" "api-kk-sdat" {
+resource "cloudflare_dns_record" "discord" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
-  name    = "api-kk-sdat.isujith.dev"
-  proxied = false
+  content = "dh=ae86f380afa461843a109b2bced4a3b8484b842a"
+  name    = "_discord.isujith.dev"
   ttl     = 3600
-  type    = "A"
-}
-
-resource "cloudflare_dns_record" "convonite" {
-  zone_id = var.cloudflare_zone_id
-  content = "catalyst.cs.zohohost.in"
-  name    = "convonite"
-  ttl     = 3600
-  type    = "CNAME"
-}
-
-resource "cloudflare_dns_record" "convonite_ssl" {
-  zone_id = var.cloudflare_zone_id
-  content = "catalyst.cs.zohohost.in"
-  name    = "5100d9dea47fd6a2cd4ef7029135b29a.convonite"
-  ttl     = 3600
-  type    = "CNAME"
+  type    = "TXT"
 }
