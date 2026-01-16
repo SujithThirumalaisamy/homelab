@@ -20,7 +20,7 @@ variable "tsig_key" {
 provider "dns" {
   update {
     server        = var.nameserver
-    key_name      = "tsig-key."
+    key_name      = "home.isujith.dev."
     key_algorithm = "hmac-sha256"
     key_secret    = var.tsig_key
   }
