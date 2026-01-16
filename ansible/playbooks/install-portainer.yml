@@ -1,7 +1,7 @@
 ---
 - name: Deploy portainer-ce latest
   hosts: "{{ '*' | d([]) }}"
-  become: yes
+  become: true
 
   tasks:
     - name: Create new volume
