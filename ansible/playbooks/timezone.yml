@@ -1,5 +1,5 @@
 - hosts: "*"
-  become: yes
+  become: true
   tasks:
     - name: Set timezone
       shell: timedatectl set-timezone Asia/Kolkata

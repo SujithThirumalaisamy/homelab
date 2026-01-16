@@ -1,7 +1,7 @@
 --- 
 - name: Install Neovim
   hosts: "{{ '*' | d([]) }}"
-  become: yes
+  become: true
 
   tasks:
     - name: Fix broken apt packages

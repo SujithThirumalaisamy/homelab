@@ -1,7 +1,7 @@
 ---
 - name: Ping
   hosts: "{{ '*' | d([]) }}"
-  become: yes
+  become: true
 
   tasks:
     - name: Ping

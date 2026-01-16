@@ -1,6 +1,6 @@
 - name: Secure SSH Configuration
   hosts: "{{ '*' | d([]) }}"
-  become: yes
+  become: true
 
   vars:
     ssh_port: 22
