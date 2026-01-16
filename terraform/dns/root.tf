@@ -1,8 +1,8 @@
-resource "dns_a_record_set" "plex" {
-  zone      = "home.isujith.dev."
-  name      = "plex"
-  addresses = ["10.0.40.2"]
-  ttl       = 3600
+resource "dns_cname_record" "plex" {
+  zone  = "home.isujith.dev."
+  name  = "plex"
+  cname = "traefik.home.isujith.dev."
+  ttl   = 3600
 }
 
 resource "dns_a_record_set" "nas" {
