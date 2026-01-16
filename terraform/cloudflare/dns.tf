@@ -1,6 +1,6 @@
 resource "cloudflare_dns_record" "root" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
+  content = "212.2.254.75"
   name    = "isujith.dev"
   proxied = true
   ttl     = 3600
@@ -9,7 +9,7 @@ resource "cloudflare_dns_record" "root" {
 
 resource "cloudflare_dns_record" "cv" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
+  content = "212.2.254.75"
   name    = "cv.isujith.dev"
   proxied = true
   ttl     = 3600
@@ -18,7 +18,7 @@ resource "cloudflare_dns_record" "cv" {
 
 resource "cloudflare_dns_record" "uk" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
+  content = "212.2.254.75"
   name    = "uk.isujith.dev"
   proxied = true
   ttl     = 3600
@@ -27,7 +27,7 @@ resource "cloudflare_dns_record" "uk" {
 
 resource "cloudflare_dns_record" "argo" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
+  content = "212.2.254.75"
   name    = "argo.isujith.dev"
   proxied = true
   ttl     = 3600
@@ -77,7 +77,7 @@ resource "cloudflare_dns_record" "subly-api" {
 
 resource "cloudflare_dns_record" "meet" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.250.163"
+  content = "212.2.254.75"
   name    = "meet.isujith.dev"
   proxied = false
   ttl     = 3600
@@ -91,3 +91,22 @@ resource "cloudflare_dns_record" "discord" {
   ttl     = 3600
   type    = "TXT"
 }
+
+resource "cloudflare_dns_record" "website" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.254.75"
+  name    = "website.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "openvpn" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.245.37"
+  name    = "openvpn.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
