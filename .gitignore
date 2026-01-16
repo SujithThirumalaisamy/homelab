@@ -16,3 +16,4 @@ isujith-dev.zone.jnl
 *-values.yml
 *-secret.yml
 secrets.yml
+config-map.yml
