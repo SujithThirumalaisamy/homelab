@@ -19,7 +19,7 @@ resource "cloudflare_dns_record" "cv" {
 resource "cloudflare_dns_record" "e2e-messenger" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.254.75"
-  name    = "e2e-messenger.home.isujith.dev"
+  name    = "e2e-messenger.isujith.dev"
   proxied = false
   ttl     = 3600
   type    = "A"
