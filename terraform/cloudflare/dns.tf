@@ -16,6 +16,15 @@ resource "cloudflare_dns_record" "cv" {
   type    = "A"
 }
 
+resource "cloudflare_dns_record" "e2e-messenger" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.254.75"
+  name    = "e2e-messenger.home.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
 resource "cloudflare_dns_record" "uk" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.254.75"
@@ -105,6 +114,15 @@ resource "cloudflare_dns_record" "openvpn" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.245.37"
   name    = "openvpn.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "plex" {
+  zone_id = var.cloudflare_zone_id
+  content = "10.0.60.10"
+  name    = "plex.home.isujith.dev"
   proxied = false
   ttl     = 3600
   type    = "A"

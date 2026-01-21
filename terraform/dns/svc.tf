@@ -41,3 +41,9 @@ resource "dns_a_record_set" "traefik" {
   ttl       = 3600
 }
 
+resource "dns_a_record_set" "jobs" {
+  zone      = "home.isujith.dev."
+  name      = "jobs"
+  addresses = ["10.0.60.10"]
+  ttl       = 3600
+}
