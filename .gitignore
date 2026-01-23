@@ -18,3 +18,5 @@ values.yaml
 *-secret.yml
 secrets.yml
 config-map.yml
+
+*.pem
