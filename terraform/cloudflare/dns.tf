@@ -43,7 +43,7 @@ resource "cloudflare_dns_record" "prometheus" {
   type    = "A"
 }
 
-resource "cloudflare_dns_record" "prometheus" {
+resource "cloudflare_dns_record" "grafana" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.254.75"
   name    = "grafana.isujith.dev"
