@@ -3,7 +3,7 @@ resource "cloudflare_dns_record" "root" {
   content = "212.2.254.75"
   name    = "isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
@@ -12,7 +12,7 @@ resource "cloudflare_dns_record" "cv" {
   content = "212.2.254.75"
   name    = "cv.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
@@ -21,7 +21,7 @@ resource "cloudflare_dns_record" "uk" {
   content = "212.2.254.75"
   name    = "uk.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
@@ -30,7 +30,7 @@ resource "cloudflare_dns_record" "argo" {
   content = "212.2.254.75"
   name    = "argo.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
