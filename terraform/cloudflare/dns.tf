@@ -16,15 +16,6 @@ resource "cloudflare_dns_record" "cv" {
   type    = "A"
 }
 
-resource "cloudflare_dns_record" "e2e-messenger" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
-  name    = "e2e-messenger.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "uk" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.254.75"
@@ -75,24 +66,6 @@ resource "cloudflare_dns_record" "mandrill_dmarc" {
   type    = "TXT"
 }
 
-resource "cloudflare_dns_record" "subly-api" {
-  zone_id = var.cloudflare_zone_id
-  content = "api.subly.fun"
-  name    = "subly-api.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "CNAME"
-}
-
-resource "cloudflare_dns_record" "meet" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
-  name    = "meet.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "discord" {
   zone_id = var.cloudflare_zone_id
   content = "dh=ae86f380afa461843a109b2bced4a3b8484b842a"
@@ -101,47 +74,11 @@ resource "cloudflare_dns_record" "discord" {
   type    = "TXT"
 }
 
-resource "cloudflare_dns_record" "website" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
-  name    = "website.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
-resource "cloudflare_dns_record" "openvpn" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.245.37"
-  name    = "openvpn.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "plex" {
   zone_id = var.cloudflare_zone_id
   content = "10.0.60.10"
   name    = "plex.home.isujith.dev"
   proxied = false
   ttl     = 3600
-  type    = "A"
-}
-
-resource "cloudflare_dns_record" "vs-fe" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
-  name    = "vs-fe.isujith.dev"
-  proxied = true
-  ttl     = 1
-  type    = "A"
-}
-
-resource "cloudflare_dns_record" "vs-be" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
-  name    = "vs-be.isujith.dev"
-  proxied = true
-  ttl     = 1
   type    = "A"
 }
