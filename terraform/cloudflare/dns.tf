@@ -133,15 +133,15 @@ resource "cloudflare_dns_record" "vs-fe" {
   content = "212.2.254.75"
   name    = "vs-fe.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
 resource "cloudflare_dns_record" "vs-be" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.254.75"
-  name    = "vs-fe.isujith.dev"
+  name    = "vs-be.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
