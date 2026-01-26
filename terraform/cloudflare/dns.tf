@@ -96,7 +96,7 @@ resource "cloudflare_dns_record" "plex" {
   zone_id = var.cloudflare_zone_id
   content = "10.0.60.10"
   name    = "plex.home.isujith.dev"
-  proxied = true
-  ttl     = 1
+  proxied = false
+  ttl     = 3600
   type    = "A"
 }
