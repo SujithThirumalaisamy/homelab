@@ -109,3 +109,12 @@ resource "cloudflare_dns_record" "dsip-be" {
   ttl     = 3600
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "dsip-fe" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.254.75"
+  name    = "dsip-fe.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
