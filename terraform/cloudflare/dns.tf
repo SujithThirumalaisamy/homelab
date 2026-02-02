@@ -118,3 +118,12 @@ resource "cloudflare_dns_record" "dsip-fe" {
   ttl     = 3600
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "wisecow" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.254.75"
+  name    = "wisecow.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
