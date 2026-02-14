@@ -1,6 +1,6 @@
 resource "cloudflare_dns_record" "root" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "isujith.dev"
   proxied = true
   ttl     = 1
@@ -9,7 +9,7 @@ resource "cloudflare_dns_record" "root" {
 
 resource "cloudflare_dns_record" "cv" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "cv.isujith.dev"
   proxied = true
   ttl     = 1
@@ -18,7 +18,7 @@ resource "cloudflare_dns_record" "cv" {
 
 resource "cloudflare_dns_record" "uk" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "uk.isujith.dev"
   proxied = true
   ttl     = 1
@@ -27,7 +27,7 @@ resource "cloudflare_dns_record" "uk" {
 
 resource "cloudflare_dns_record" "argo" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "argo.isujith.dev"
   proxied = true
   ttl     = 1
@@ -36,7 +36,7 @@ resource "cloudflare_dns_record" "argo" {
 
 resource "cloudflare_dns_record" "prometheus" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "prometheus.isujith.dev"
   proxied = true
   ttl     = 1
@@ -45,7 +45,7 @@ resource "cloudflare_dns_record" "prometheus" {
 
 resource "cloudflare_dns_record" "grafana" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "grafana.isujith.dev"
   proxied = true
   ttl     = 1
@@ -92,18 +92,9 @@ resource "cloudflare_dns_record" "discord" {
   type    = "TXT"
 }
 
-resource "cloudflare_dns_record" "plex" {
-  zone_id = var.cloudflare_zone_id
-  content = "10.0.60.10"
-  name    = "plex.home.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "dsip-be" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "dsip-be.isujith.dev"
   proxied = false
   ttl     = 3600
@@ -112,7 +103,7 @@ resource "cloudflare_dns_record" "dsip-be" {
 
 resource "cloudflare_dns_record" "dsip-fe" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "dsip-fe.isujith.dev"
   proxied = false
   ttl     = 3600
@@ -121,7 +112,7 @@ resource "cloudflare_dns_record" "dsip-fe" {
 
 resource "cloudflare_dns_record" "wisecow" {
   zone_id = var.cloudflare_zone_id
-  content = "212.2.254.75"
+  content = "172.232.99.150"
   name    = "wisecow.isujith.dev"
   proxied = false
   ttl     = 3600
