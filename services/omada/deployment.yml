@@ -71,4 +71,3 @@ spec:
         - name: omada-logs
           persistentVolumeClaim:
             claimName: omada-logs-nfs
-

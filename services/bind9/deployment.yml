@@ -12,47 +12,41 @@ spec:
       labels:
         app: bind9
     spec:
-      initContainers:
-      - name: init-zone
-        image: ubuntu/bind9:latest
-        command:
-        - /bin/sh
-        - -c
-        - |
-          # Fix ownership of cache directory for bind user (uid 101)
-          chown -R bind:bind /var/cache/bind
-          if [ ! -f /var/cache/bind/isujith-dev.zone ]; then
-            echo "Copying initial zone file..."
-            cp /etc/bind/isujith-dev.zone /var/cache/bind/
-            chown bind:bind /var/cache/bind/isujith-dev.zone
-            echo "Zone file copied successfully."
-          else
-            echo "Zone file already exists, skipping copy."
-          fi
-          ls -la /var/cache/bind/
-        volumeMounts:
-        - name: bind9-volume
-          mountPath: /etc/bind
-        - name: bind9-cache
-          mountPath: /var/cache/bind
       containers:
-      - name: bind9
-        command: ["/bin/sh", "-c", "cd /var/cache/bind && /usr/sbin/named -g -u bind -c /etc/bind/named.conf"]
-        image: ubuntu/bind9:latest
-        ports:
-        - containerPort: 53
-          protocol: UDP
-        - containerPort: 53
-          protocol: TCP
-        volumeMounts:
-        - name: bind9-volume
-          mountPath: /etc/bind
-        - name: bind9-cache
-          mountPath: /var/cache/bind
+        - name: bind9
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "cd /var/cache/bind && /usr/sbin/named -g -u bind -c /etc/bind/named.conf",
+            ]
+          image: "ubuntu/bind9:latest"
+          ports:
+            - containerPort: 53
+              protocol: UDP
+            - containerPort: 53
+              protocol: TCP
+            - containerPort: 853
+              protocol: TCP
+            - containerPort: 443
+              protocol: TCP
+          volumeMounts:
+            - name: named-config
+              mountPath: /etc/bind/named.conf
+              subPath: named.conf
+            - name: bind9-volume
+              mountPath: /etc/bind/zones
+            - name: tsig-secret
+              mountPath: /etc/bind/keys/tsig-key
+              subPath: tsig-key
+              readOnly: true
       volumes:
-      - name: bind9-volume
-        persistentVolumeClaim:
-          claimName: bind9-nas-pvc
-      - name: bind9-cache
-        persistentVolumeClaim:
-          claimName: bind9-cache-pvc
+        - name: named-config
+          configMap:
+            name: bind9-named-conf
+        - name: bind9-volume
+          persistentVolumeClaim:
+            claimName: bind9-nas-pvc
+        - name: tsig-secret
+          secret:
+            secretName: bind9-tsig-secret

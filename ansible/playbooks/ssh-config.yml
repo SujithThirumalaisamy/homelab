@@ -30,8 +30,14 @@
       loop:
         - { regexp: "^#?Port", line: "Port {{ ssh_port }}" }
         - { regexp: "^#?PermitRootLogin", line: "PermitRootLogin yes" }
-        - { regexp: "^#?PasswordAuthentication", line: "PasswordAuthentication no" }
-        - { regexp: "^#?PubkeyAuthentication", line: "PubkeyAuthentication yes" }
+        - {
+            regexp: "^#?PasswordAuthentication",
+            line: "PasswordAuthentication no",
+          }
+        - {
+            regexp: "^#?PubkeyAuthentication",
+            line: "PubkeyAuthentication yes",
+          }
         - { regexp: "^#?MaxAuthTries", line: "MaxAuthTries 3" }
         - { regexp: "^#?MaxSessions", line: "MaxSessions 2" }
         - { regexp: "^#?AllowTcpForwarding", line: "AllowTcpForwarding no" }
@@ -39,7 +45,10 @@
         - { regexp: "^#?PermitTunnel", line: "PermitTunnel no" }
         - { regexp: "^#?ClientAliveInterval", line: "ClientAliveInterval 300" }
         - { regexp: "^#?ClientAliveCountMax", line: "ClientAliveCountMax 2" }
-        - { regexp: "^#?AuthorizedKeysFile", line: "AuthorizedKeysFile .ssh/authorized_keys" }
+        - {
+            regexp: "^#?AuthorizedKeysFile",
+            line: "AuthorizedKeysFile .ssh/authorized_keys",
+          }
 
     - name: Allow only specific users
       blockinfile:

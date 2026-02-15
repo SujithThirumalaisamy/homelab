@@ -9,14 +9,27 @@ terraform.tfstate.backup
 credentials.auto.pkrvars.hcl
 
 # Ignore the named.conf.key file
+tsig.conf
 named.conf.key
 isujith-dev.zone.jnl
 
-# Ignore helm values files
+# Ignore secret files
 *-values.yml
-values.yaml
+*-values.yaml
 *-secret.yml
+*-secret.yaml
+*-secrets.yml
+*-secrets.yaml
+*-config-map.yml
+*-config-map.yaml
+
+values.yml
+values.yaml
+secret.yml
+secret.yaml
 secrets.yml
+secrets.yaml
 config-map.yml
+config-map.yaml
 
 *.pem

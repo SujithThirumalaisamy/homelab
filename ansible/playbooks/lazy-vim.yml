@@ -1,4 +1,4 @@
---- 
+---
 - name: Install Neovim
   hosts: "{{ '*' | d([]) }}"
   become: true
@@ -38,7 +38,7 @@
       ansible.builtin.file:
         path: /opt/nvim
         state: directory
-        mode: '0755'
+        mode: "0755"
 
     - name: Extract Neovim
       ansible.builtin.unarchive:
@@ -56,7 +56,7 @@
       ansible.builtin.file:
         path: "/home/sujith/.config/nvim"
         state: directory
-        mode: '0755'
+        mode: "0755"
         owner: "sujith"
 
     - name: Clone LazyVim starter
@@ -65,4 +65,3 @@
         dest: "/home/sujith/.config/nvim"
         depth: 1
         force: yes
-

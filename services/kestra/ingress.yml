@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kestra-ingress
+  namespace: kestra
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
+spec:
+  tls:
+    - hosts:
+        - kestra.home.isujith.dev
+      secretName: kestra-cert
+  rules:
+    - host: kestra.home.isujith.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kestra-starter
+                port:
+                  number: 8080

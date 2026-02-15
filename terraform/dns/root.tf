@@ -8,7 +8,7 @@ resource "dns_cname_record" "plex" {
 resource "dns_a_record_set" "nas" {
   zone      = "home.isujith.dev."
   name      = "nas"
-  addresses = ["10.0.40.1"]
+  addresses = ["10.0.99.1"]
   ttl       = 3600
 }
 
