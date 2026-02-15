@@ -94,7 +94,7 @@ resource "cloudflare_dns_record" "discord" {
 
 resource "cloudflare_dns_record" "dsip-be" {
   zone_id = var.cloudflare_zone_id
-  content = "172.232.99.150"
+  content = "212.2.255.171"
   name    = "dsip-be.isujith.dev"
   proxied = false
   ttl     = 3600
@@ -103,7 +103,7 @@ resource "cloudflare_dns_record" "dsip-be" {
 
 resource "cloudflare_dns_record" "dsip-fe" {
   zone_id = var.cloudflare_zone_id
-  content = "172.232.99.150"
+  content = "212.2.255.171"
   name    = "dsip-fe.isujith.dev"
   proxied = false
   ttl     = 3600
