@@ -97,7 +97,7 @@ resource "cloudflare_dns_record" "wisecow" {
   content = "172.232.99.150"
   name    = "wisecow.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
 
@@ -106,6 +106,6 @@ resource "cloudflare_dns_record" "e2e" {
   content = "172.232.99.150"
   name    = "e2e.isujith.dev"
   proxied = true
-  ttl     = 3600
+  ttl     = 1
   type    = "A"
 }
