@@ -92,29 +92,20 @@ resource "cloudflare_dns_record" "discord" {
   type    = "TXT"
 }
 
-resource "cloudflare_dns_record" "dsip-be" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.255.171"
-  name    = "dsip-be.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
-resource "cloudflare_dns_record" "dsip-fe" {
-  zone_id = var.cloudflare_zone_id
-  content = "212.2.255.171"
-  name    = "dsip-fe.isujith.dev"
-  proxied = false
-  ttl     = 3600
-  type    = "A"
-}
-
 resource "cloudflare_dns_record" "wisecow" {
   zone_id = var.cloudflare_zone_id
   content = "172.232.99.150"
   name    = "wisecow.isujith.dev"
-  proxied = false
+  proxied = true
+  ttl     = 3600
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "e2e" {
+  zone_id = var.cloudflare_zone_id
+  content = "172.232.99.150"
+  name    = "e2e.isujith.dev"
+  proxied = true
   ttl     = 3600
   type    = "A"
 }
