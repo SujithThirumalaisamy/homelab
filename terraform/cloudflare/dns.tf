@@ -109,3 +109,21 @@ resource "cloudflare_dns_record" "e2e" {
   ttl     = 1
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "dsip" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.255.171"
+  name    = "dsip.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "api-dsip" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.255.171"
+  name    = "api.dsip.isujith.dev"
+  proxied = true
+  ttl     = 3600
+  type    = "A"
+}
