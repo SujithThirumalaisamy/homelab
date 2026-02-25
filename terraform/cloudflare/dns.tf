@@ -119,11 +119,11 @@ resource "cloudflare_dns_record" "dsip" {
   type    = "A"
 }
 
-resource "cloudflare_dns_record" "api-dsip" {
+resource "cloudflare_dns_record" "api_dsip" {
   zone_id = var.cloudflare_zone_id
   content = "212.2.255.171"
   name    = "api.dsip.isujith.dev"
-  proxied = true
+  proxied = false
   ttl     = 3600
   type    = "A"
 }
