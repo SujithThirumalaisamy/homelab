@@ -127,3 +127,21 @@ resource "cloudflare_dns_record" "api_dsip" {
   ttl     = 3600
   type    = "A"
 }
+
+resource "cloudflare_dns_record" "frp" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.250.212"
+  name    = "frp.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
+
+resource "cloudflare_dns_record" "frp_wc" {
+  zone_id = var.cloudflare_zone_id
+  content = "212.2.250.212"
+  name    = "*.frp.isujith.dev"
+  proxied = false
+  ttl     = 3600
+  type    = "A"
+}
